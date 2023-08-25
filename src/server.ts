@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(cors());
 
 app.use("/users", appRoutes())
-app.get("/", (req, res) => res.json("ok"))
+app.get("/", (req, res) => res.json({message: "ok"}))
 
 
 app.listen(process.env.PORT, () =>{
