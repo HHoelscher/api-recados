@@ -169,19 +169,11 @@ export class ErrandController {
             .status(404)
             .send({ ok: false, message: "Errand was not found." });
         }
-        
-        if(errand._archived === false){
-          errand._archived = true;
-        }
-        else{
-          return res
-            .status(400)
-            .send({ ok: false, message: "Errand already archived." });
-        }
+        errand._archived = !errand._archived
     
         return res
           .status(200)
-          .send({ ok: true, message: "Errand was successfully archived." });
+          .send({ ok: true, message: "Errand was successfully updated." });
       } catch (error: any) {
         return res.status(500).send({
           ok: false,
